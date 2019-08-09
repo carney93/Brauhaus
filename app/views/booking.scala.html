@@ -1,0 +1,45 @@
+@(user: models.users.User)
+@main("Book Tour", user){
+      
+  
+        <!-- Main -->  
+ <div class= container-fluid padding>
+          <div class="reserve">
+              <h1>Book a tour of our Brewery</h1>
+              
+         <div class="row">
+              <div class="col-md-5">
+                <form>
+<div class="form-group">
+<input type="FirstName" class="form-control" id="InputFirstname" placeholder="Enter First Name">
+  </div>
+<div class="form-group">
+<input type="Lastname" class="form-control" id="InputLastname" placeholder="Enter Last Name">
+  </div>
+  <div class="form-group">
+    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlSelect1">Party Size</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    <option>6</option>
+    </select>
+                    </div>
+  <button type="submit" class="btn btn-primary">Make Booking</button>
+</form>
+
+              </div>
+  
+              </div>
+          </div>  
+      </div>
+   
+      }
+   
+      
+   

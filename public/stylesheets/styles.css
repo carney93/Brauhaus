@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+html {
+    background-color: black;
+}
+
+
+
+ /* Navigation bar */
+
+#brand-img {
+    height: 35px;
+}
+
+.navbar-brand, ul ,.my-nav {
+  background-color: black;
+    color: white;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover{
+    color:#CBA560;
+}
+
+ 
+.dropdown-menu{
+    background-color: black;
+}
+
+.dropdown-item{
+    color: white;
+}
+
+.dropdown-item:hover{
+    color: #CBA560;
+    background-color: black;
+}
+
+
+/*Homepage */
+
+.jumbotron{
+    margin-top: 5%;
+    background: url("/assets/images/jumbotron.jpeg");
+    background-size: cover;
+   color: white;
+      padding-top: 15%;
+      padding-bottom: 15%;
+}
+
+hr {
+    border: 1px solid;
+    width: 90%;
+}
+
+#aboutus{
+    margin-bottom: 5%;
+}
+
+
+/* Store Page */
+
+.store {
+    padding-top: 7%;
+    width: 90%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+
+    
+}
+
+.store img {
+    height: 80%;
+    width: 95%;
+}
+
+.itemButton {
+    margin-top: 1%;
+}
+
+.btndelete{
+    margin-top: 3%;
+}
+
+.uptdelete{
+    margin-top: 3%;
+}
+
+
+ 
+.storeItem {
+    margin-bottom: 5%;
+}
+
+
+
+.store button{
+    border-color: black; 
+    color: white;
+    background-color: black;
+}
+
+.store button:hover{
+    color: #CBA560;
+    background-color: black;
+    border-color: black;
+}
+
+.soldOut img{
+    height:40%;
+    width:40%;
+
+    
+}
+
+
+/* users Page */
+
+.users {
+    padding-top: 7%;
+    width: 90%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+
+    
+}
+
+.users h1 {
+    margin-bottom: 3%;
+}
+
+
+
+.users button{
+    border-color: black; 
+    color: white;
+    background-color: black;
+}
+
+.users button:hover{
+    color: #CBA560;
+    background-color: black;
+    border-color: black;
+}
+
+
+/* add user Page */
+
+.addUser {
+    padding-top: 8%;
+    width: 90%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+ 
+}
+
+.addUser h1 {
+    margin-bottom: 3%;
+}
+
+.addUser button{
+    border-color: black; 
+    color: white;
+    background-color: black;
+}
+
+.addUser button:hover{
+    color: #CBA560;
+    background-color: black;
+border-color: black;
+}
+
+.addUser btn-primary {
+     border-color: black; 
+    color: white;
+    background-color: black;
+}
+
+/* basket Page */
+
+.basket {
+    padding-top: 8%;
+    width: 90%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+ 
+}
+
+.basket h1 {
+    margin-bottom: 3%;
+}
+
+/* Order Page Page */
+
+.orderConfirm {
+    padding-top: 8%;
+    width: 90%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+ 
+}
+
+.orderConfirm h1 {
+    margin-bottom: 3%;
+}
+
+
+
+
+/* Login Page */
+
+.login {
+    padding-top: 8%;
+    width: 90%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    margin-top: 4%;
+
+
+    
+}
+
+
+.login h1 {
+    margin-bottom: 3%;
+}
+
+.login button{
+    border-color: black; 
+    color: white;
+    background-color: black;
+}
+
+.login button:hover{
+    color: #CBA560;
+    background-color: black;
+border-color: black;
+}
+
+/* register Page */
+
+.register {
+    padding-top: 8%;
+    width: 90%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    margin-top: 4%;
+
+
+    
+}
+
+
+.register h1 {
+    margin-bottom: 3%;
+}
+
+.register button{
+    border-color: black; 
+    color: white;
+    background-color: black;
+}
+
+.register button:hover{
+    color: #CBA560;
+    background-color: black;
+border-color: black;
+}
+
+/* my Ordes Page */
+
+.myOrders{
+    padding-top: 8%;
+    width: 90%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    margin-top: 4%;
+
+
+    
+}
+
+
+
+/* booking Page */
+.booking {
+    padding-top: 8%;
+    width: 90%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+ 
+}
+
+.booking h1 {
+    margin-bottom: 3%;
+}
+
+.booking button{
+    border-color: black; 
+    color: white;
+    background-color: black;
+}
+
+.booking button:hover{
+    color: #CBA560;
+    background-color: black;
+border-color: black;
+}
+
+
+/* Reserve Page */
+.reserve {
+    padding-top: 8%;
+    width: 90%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+ 
+}
+
+.reserve h1 {
+    margin-bottom: 3%;
+}
+
+.reserve button{
+    border-color: black; 
+    color: white;
+    background-color: black;
+}
+
+.reserve button:hover{
+    color: #CBA560;
+    background-color: black;
+border-color: black;
+}
+
+
+
+/* Add item Page */
+.additem {
+    padding-top: 8%;
+    width: 90%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+ 
+}
+
+.additem h1 {
+    margin-bottom: 3%;
+}
+
+.additem button{
+    border-color: black; 
+    color: white;
+    background-color: black;
+}
+
+.additem button:hover{
+    color: #CBA560;
+    background-color: black;
+border-color: black;
+}
+
+.additem btn-primary {
+     border-color: black; 
+    color: white;
+    background-color: black;
+}
+
+/* Reserve Page */
+.reviews {
+    padding-top: 8%;
+    width: 90%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+ 
+}
+
+.reviews button{
+    border-color: black; 
+    color: white;
+    background-color: black;
+}
+
+.reviews button:hover{
+    color: #CBA560;
+    background-color: black;
+    border-color: black;
+}
+
+
+.actions input {
+    border-color: black; 
+    color: white;
+    background-color: black;
+    
+}
+
+.actions input:hover {
+    border-color: black; 
+    color: #CBA560;
+    background-color: black;
+    
+}
+
+
+
+
+
+
+
+
+/* Footer */
+
+footer p, footer h4, footer hr {
+    color: #CBA560;
+    
+}
+
+
+footer {
+    padding-top: 2%;
+    background-color: black;
+}
+
+
+
+
+

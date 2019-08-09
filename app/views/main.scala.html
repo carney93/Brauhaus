@@ -1,0 +1,143 @@
+@(pagename: String, user: models.users.User)(content: Html)
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+      
+      <!-- CSS -->
+      <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/styles.css")">
+      
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+      
+      <!--Stripe Payment -->
+      <script src="https://js.stripe.com/v3/"></script>
+
+    <title>Brauhaus @pagename</title>
+  </head>
+  <body>
+  
+      <!-- Navbar -->
+      <nav class="navbar my-nav fixed-top navbar-expand-lg">
+  <a class="navbar-brand" href="@routes.HomeController.index()">
+          <img src="@routes.Assets.versioned("images/logo.png")" alt="Company Logo" img id ="brand-img"/></a>
+  
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon">
+      </span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="@routes.HomeController.index()#aboutus">About Us</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="@routes.HomeController.store()">Store</a>
+      </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@routes.HomeController.reservation()">Reservations</a>
+        </li>
+        <li class="nav-item">
+          
+            <a class="nav-link" href="@routes.HomeController.reviews()">Reviews</a>
+            
+        </li>
+        <li class="nav-item">
+				@if((user != null) && ("customer".equals(user.getRole()))) {
+					<a class="nav-link" href="@routes.ShoppingCtrl.viewOrders()">View my Orders</a>
+				} 		
+			</li>  
+        <li class="nav-item">
+            @if((user == null)) {
+        <a class="nav-link" href="@routes.LoginController.registerUser()">Register</a>
+            }
+      </li>
+        <li class="nav-item">
+				@if((user != null) && ("admin".equals(user.getRole()))) {
+					<a class="nav-link" href="@routes.HomeController.usersAdmin()">Administrators</a>
+				} 		
+			</li>  
+    </ul> 
+      <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+				@if(user != null) {
+					<a class="nav-link" href="@routes.LoginController.logout()">Log Out</a>
+				} else {
+					<a class="nav-link" href="@routes.LoginController.login()">Log In</a>
+				}					
+			</li>
+           <li>
+               
+        <a class="nav-link" href="@routes.ShoppingCtrl.showBasket()"><i class="fas fa-shopping-cart"></i> Cart</a>
+      </li>
+    </ul> 
+  </div>
+          
+</nav>
+     
+      
+      <!-- Main -->
+
+@content
+      
+      <!-- Footer -->
+      <footer>
+          <div class= container-fluid padding> 
+          <div class="row text-center">
+              <div class="col-4">
+              <hr>
+                  <h4>Opening Times</h4>
+                <hr>
+                  <p>Sunday - Thursday: 10:00 - 23:00</p>
+                  <p>Friday - Saturday: 10:00 - 02:00</p>
+              </div> 
+             
+           
+              <div class="col-4">
+              <hr>
+                  <h4>Address</h4>
+                <hr>
+                  <p>15 Dame Lane</p>
+                  <p>Dublin 2</p>
+                  <p>Ireland</p>
+                  </div>
+              
+              
+               <div class="col-4">
+              <hr>
+                  <h4>Contact Us</h4>
+                <hr>
+                  <p>01-463335</p>
+                  <p>brauhausgmail.com</p>
+                  </div>  
+              
+              <div class="col-12">
+            <span class="footer-copyright-line">
+              <hr>
+                  </span>
+                <h3>©BrauHaus.com</h3>
+              </div>
+                </div>
+          </div>
+          
+      
+          
+      
+      
+      </footer>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>

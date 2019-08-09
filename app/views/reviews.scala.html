@@ -1,0 +1,127 @@
+@(user: models.users.User, reviews: List[models.Review], items: List[models.ItemOnSale],addReview: Form[models.Review])
+
+
+@import play.api.Play.current
+@import models.shopping._
+@import models._
+@import models.users._
+@import helper._
+
+
+
+<!-- Pass page title and user on to main -->
+@main("Reviews", user) {
+
+<div class= container-fluid padding>
+           <div class="reviews">
+          
+              <div class ="pageTitle">
+              <div class="col-sm-12">
+                     <h1>Reviews</h1>
+              </div>
+                  </div>
+                       
+              <div class="row text-center">
+                        
+                      	<div class="col-sm-3">
+		<h4>View Review by Item</h4>
+		<div class="list-group">
+			<a href="@routes.HomeController.reviews(0)" class="list-group-item">All Products</a>
+			@for(i<-items) {
+                <a href="@routes.HomeController.reviews(i.getId)" class="list-group-item">@i.getName</a>
+			}
+		</div>
+               </div>
+              
+              
+                           
+                           
+                           
+                           
+                <div class="col-9">
+                    
+                    <table class="table table-bordered table-hover table-condensed">
+            <thead>
+        <!-- The header row-->
+        <tr>
+            <th>Product</th>
+            <th>Review</th>
+            <th>Posted By</th>
+            @if((user != null) && ("admin".equals(user.getRole()))){
+            <th></th>
+            }
+        </tr>
+        </thead>
+        <tbody>
+     
+        <!-- Users row(s) -->
+       
+            @* Loop for creating table rows from User data *@
+            @for(r<-reviews) {
+               <tr>
+                  <td>@r.getItems.getName</td>
+                  <td>@r.getReviewMessage</td>
+                  <td>@r.getReviewerName</td>
+            @if((user != null) && ("admin".equals(user.getRole()))){       
+                <td>
+                      <a href="@routes.HomeController.deleteReview(r.getId)" onclick="return confirmDel();"><button class="btndelete">X</button></a>
+                      
+                     </td>}
+                
+                   
+
+               </tr>
+            }
+        
+        </tbody>
+    </table>
+              
+    
+    
+             </div>
+
+
+
+
+    
+              <div class="col-md-12">
+                  
+@form(action=routes.HomeController.addReviewSubmit(), 'class -> "form-horizontal", 'role -> "form") {
+          @* CSRF attack prevention *@
+        @* This token, sent by the controller, will be used to authenticate the form submission *@
+        @CSRF.formField
+                
+                     @select(
+                    addReview("items.id"),
+                    options(ItemOnSale.options),
+                     '_label -> "Products", '_default -> "-- What product are you reviewing --", 
+                '_showConstraints -> false, 'class -> "form-control"
+            
+                  )
+                
+            @inputText(addReview("reviewMessage"), '_label -> "Enter your Review", 'class -> "form-control")
+            @inputText(addReview("reviewerName"), '_label -> "Enter your Name", 'class -> "form-control")
+            
+              
+           
+          
+
+    
+
+<div class="actions">
+                <input type="submit" value="Add Review" class="btn btn-primary">
+                <a href="@routes.HomeController.addReviewSubmit()">
+                    <button type="button" class="btn btn-warning">Cancel</button>
+                </a>
+            </div>
+                  } @* end of form *@
+
+
+        </div>  
+              
+</div>
+</div>
+      
+      </div>
+      
+}

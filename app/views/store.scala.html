@@ -1,0 +1,58 @@
+@(items: List[models.ItemOnSale], user: models.users.User)
+@main("Store", user){
+
+ 
+        <!-- Main -->                                              
+    <div class= container-fluid padding> 
+        
+      
+        <div class="store">
+              @* Display successful new product message from flash, if it is set *@
+	@if(flash.containsKey("success")) {
+		<div class="alert alert-success">
+			@flash.get("success")
+		</div>
+	}
+            
+            @if((user != null) && ("admin".equals(user.getRole()))){
+            <p>
+        <a href="@routes.HomeController.additem()">
+				<button class="btn btn-primary">Add an item</button>
+			</a>
+            </p>
+            }
+            
+         <div class="row text-center">
+             @* Loop for rows from ItemOnSale data *@
+   @for(i<-items) {
+              <div class="col-md-4">
+             <div class="storeItem">
+             <img src="@routes.Assets.versioned("images/beer.jpg")" alt="Beer"/>
+                  <div class="col-md-12">
+                    <h4>@i.getName - Stock: @i.getStock</h4> 
+                    @if(i.getStock()>0){ 
+                      <a href="@routes.ShoppingCtrl.addToBasket(i.getId)"><button class="itemButton" type="submit">Add to Cart <br> &euro; @("%.2f".format(i.getPrice))</button></a>
+                    }else {
+                        <div class="soldOut">
+                        <img src="@routes.Assets.versioned("images/soldout.png")" alt="Sold Out Logo"/> 
+                        </div>
+                    }
+                      </div>
+                 <div class="col-md-12">
+                     @if((user != null) && ("admin".equals(user.getRole()))){
+                      <a href="@routes.HomeController.deleteItem(i.getId)" onclick="return confirmDel();"><button class="btndelete">X</button></a>
+                      <a href="@routes.HomeController.updateItem(i.getId)"><button class="uptdelete">U</button></a>  
+                     }
+                 </div>
+              </div>
+             </div>
+              
+     }
+        </div>
+       </div>
+      </div>     
+      
+      
+    }
+       
+ 

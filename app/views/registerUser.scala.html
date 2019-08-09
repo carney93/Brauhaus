@@ -1,0 +1,80 @@
+@(userForm: Form[models.users.UserPassword2], user: models.users.User)
+@import helper._
+@main("Account Page", user){
+     
+ 
+        <!-- Main -->  
+      
+      <div class= container-fluid padding>
+          <div class="register">
+              <h1> Welcome to the Account Register Page</h1>
+              
+        @* Display error message from flash, if it is set *@
+	@if(flash.containsKey("error")) {
+		<div class="alert alert-success">
+			@flash.get("error")
+		</div>
+	}
+             
+              <!-- The register form-->
+   @form(action=routes.LoginController.registerUserSubmit(), 'class -> "form-horizontal", 'role -> "form") {
+        @* CSRF attack prevention *@
+        @* This token, sent by the controller, will be used to authenticate the form submission *@
+        @CSRF.formField
+
+                    <div class="col-md-5">
+                <form>
+    <div class="form-group">
+    <h4>Create an Account</h4>
+    @inputText(userForm("email"), '_label -> "Email", 'class -> "form-control")   
+  </div>
+  <div class="form-group">
+    @inputDate(userForm("dateOfBirth"), args = 'size -> 10, '_label -> "Date Of Birth", 'class -> "form-control")
+  </div>
+  <div class="form-group">
+    @inputText(userForm("name"), '_label -> "Name", 'class -> "form-control")
+  </div>
+  <div class="form-group">
+    @inputText(userForm("password"), '_label -> "Password", 'class -> "form-control")
+  </div>
+  <div class="form-group">
+   @inputText(userForm("password2"), '_label -> "Confirm Password", 'class -> "form-control")
+  </div>
+                    <div class="form-group">
+   @inputText(userForm("street1"), '_label -> "House Number", 'class -> "form-control")
+  </div>
+                    <div class="form-group">
+   @inputText(userForm("street2"), '_label -> "Street Name", 'class -> "form-control")
+  </div>
+                    <div class="form-group">
+   @inputText(userForm("town"), '_label -> "Town", 'class -> "form-control")
+  </div>
+                    <div class="form-group">
+   @inputText(userForm("postCode"), '_label -> "Post Code", 'class -> "form-control")
+  </div>
+                 
+                    
+    @inputText(userForm("role").copy(value=Some("customer")), '_label -> "",'hidden -> "hidden")
+
+                    
+                    
+</form>
+
+
+<div class="actions">
+                <input type="submit" value="Register user" class="btn btn-primary">
+                <a href="@routes.LoginController.registerUser()">
+                    <button type="button" class="btn btn-warning">Cancel</button>
+                </a>
+            </div>
+
+
+              </div>}@* end of form *@
+             
+         
+             
+              </div>
+          </div>  
+      </div>
+      
+}
